@@ -10,7 +10,9 @@ describe('Sign In page', () => {
     cy.get('#password').type('SuperSecretPassword!');
     cy.get('.fa-sign-in').click();
     cy.url().should('include', '/secure');
-    cy.contains('Welcome to the Secure Area.');
+    cy.contains(
+      'Welcome to the Secure Area. When you are done click logout below.'
+    );
   });
 
   it('should not login with invalid credentials', () => {
@@ -30,7 +32,9 @@ describe('Sign In page', () => {
     cy.get('#password').type('SuperSecretPassword!');
     cy.get('.fa-sign-in').click();
     cy.url().should('include', '/secure');
-    cy.contains('Welcome to the Secure Area.');
+    cy.contains(
+      'Welcome to the Secure Area. When you are done click logout below.'
+    );
     cy.get('a.button').click();
     cy.url().should('include', '/login');
     cy.contains('Login Page');
